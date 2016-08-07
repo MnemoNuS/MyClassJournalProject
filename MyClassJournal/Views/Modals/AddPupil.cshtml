@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = ViewBag.Message;
+}
+
+    <div class="modal-header">
+        <h3 class="modal-title">@ViewBag.Message</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="pupilName">Имя</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="pupilName" ng-model="currentPupil.name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="pupilBDate">Дата рождения</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="pupilBDate" ng-model="currentPupil.bDate"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="pupilAge">Возраст</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="pupilAge" ng-model="currentPupil.age"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="pupilGender">Пол</label>
+                <div class="col-sm-9" id="pupilGender" >
+                    <select class="form-control" ng-model="currentPupil.gender">
+                        <option value="male">Мальчик</option>
+                        <option value="Female">Девочка</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="pupilFamily">Семья</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="pupilFamily" ng-model="currentPupil.family"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="save()">Добавить</button>
+        <button class="btn btn-default" ng-click="cancel()">Отмена</button>
+    </div>
+
+@{
+    Layout = "";
+}

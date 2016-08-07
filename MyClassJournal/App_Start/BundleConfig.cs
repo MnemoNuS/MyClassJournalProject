@@ -15,10 +15,10 @@ namespace MyClassJournal
 						"~/Scripts/jquery.validate*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/app").Include(
-						"~/Scripts/ui-bootstrap-tpls-2.0.0.min.js",
 						"~/Scripts/angular.min.js",
-						"~/Scripts/app/app.js"
-						));
+                         "~/Scripts/ui-bootstrap-tpls-2.0.0.min.js",
+                        "~/Scripts/app/app.js"
+                        ));
 
 			// Use the development version of Modernizr to develop with and learn from. Then, when you're
 			// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
