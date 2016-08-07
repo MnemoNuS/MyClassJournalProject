@@ -1,0 +1,70 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="conteiner">
+	<br/>
+	<div class="row">
+		<div class="well">
+			<img src="~/Content/images/289597-frederika.jpg" class="col-sm-2 col-md-2 img-circle">
+			<h2>{{teacher.name}}</h2>
+			<h3>{{teacher.className}}</h3>
+		</div>
+	</div>
+	<div class="row">
+		<ul class="nav nav-pills" ng-if="currentPanel.name != 'Menu'">
+			<li role="presentation" ng-class="{ 'active': panel.index == currentPanel.index}" ng-repeat="panel in panels track by $index"><a href="" ng-click="setCurrentPanel(panel)">{{panel.title}}</a></li>
+		</ul>
+		<br/>
+	</div>
+
+	<div class="row" ng-if="currentPanel.name == 'Menu'">
+		<div class="col-sm-4 col-md-3" ng-repeat="panel in panels track by $index" ng-if="$index >
+				0">
+			<a href="" ng-click="setCurrentPanel(panel)">
+				<div class="thumbnail">
+					<img src="~/Content/images/defaultImg.png"/>
+					<div class="caption">
+						<h4>{{panel.title}}</h4>
+						<p>...</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="row" ng-if="currentPanel.name == 'Class'">
+
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">{{currentPanel.title}}</div>
+			<div class="panel-body">
+				<p>...</p>
+				<button type="button" class="btn btn-default  pull-right" ng-click="openAddingForm()">Добавить</button>
+			</div>
+			<table class="table tabl">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Имя</th>
+					<th>Дата рождения</th>
+					<th>Возраст</th>
+					<th>Пол</th>
+					<th>Семья</th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="pupil in myPupils track by $index" ng-class="{ 'info': pupil.gender == 'male', 'danger': pupil.gender == 'female' }">
+					<th scope="row">{{$index}}</th>
+					<td>{{pupil.name}}</td>
+					<td>{{pupil.bDate}}</td>
+					<td>{{pupil.age}}</td>
+					<td>{{pupil.gender}}</td>
+					<td>{{pupil.family}}</td>
+					<td><button type="button" class="btn btn-default">Подробнее...</button></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
