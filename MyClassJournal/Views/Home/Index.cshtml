@@ -1,123 +1,139 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "My Class Journal";
 }
 
 <div class="conteiner">
-    <br />
-    <div class="row">
-        <div class="well">
-            <img src="~/Content/images/289597-frederika.jpg" class="col-sm-2 col-md-2 img-circle">
-            <h2>{{teacher.name}}</h2>
-            <h3>{{teacher.className}}</h3>
-        </div>
-    </div>
-    <div class="row">
-        <ul class="nav nav-pills" ng-if="currentPanel.name != 'Menu'">
-            <li role="presentation" ng-class="{ 'active': panel.index == currentPanel.index}" ng-repeat="panel in panels track by $index"><a href="" ng-click="setCurrentPanel(panel)">{{panel.title}}</a></li>
-        </ul>
-        <br />
-    </div>
+	<br />
+	<div class="row well">
+				<img src="~/Content/images/289597-frederika.jpg" class=" col-lg-2 col-md-2 img-circle">
+			<h2>{{teacher.name}}</h2>
+			<h3>{{teacher.className}}</h3>
+	</div>
+	<div class="row">
+		<ul class="nav nav-pills" ng-if="currentPanel.name != 'Menu'">
+			<li role="presentation" ng-class="{ 'active': panel.index == currentPanel.index}" ng-repeat="panel in panels track by $index"><a href="" ng-click="setCurrentPanel(panel)">{{panel.title}}</a></li>
+		</ul>
+		<br />
+	</div>
 
-    <div class="row" ng-if="currentPanel.name == 'Menu'">
-        <div class="col-sm-4 col-md-3" ng-repeat="panel in panels track by $index" ng-if="$index >
+	<div class="row" ng-if="currentPanel.name == 'Menu'">
+		<div class="col-sm-4 col-md-3" ng-repeat="panel in panels track by $index" ng-if="$index >
 				0">
-            <a href="" ng-click="setCurrentPanel(panel)">
-                <div class="thumbnail">
-                    <img src="~/Content/images/defaultImg.png" />
-                    <div class="caption">
-                        <h4>{{panel.title}}</h4>
-                        <p>...</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="row" ng-if="currentPanel.name == 'Class'">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">{{currentPanel.title}}</div>
-            <div class="panel-body">
-                <p>...</p>
-                <button type="button" class="btn btn-default  pull-right" ng-click="openAddingForm()">Добавить</button>
-            </div>
-            <table class="table tabl">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Имя</th>
-                        <th>Дата рождения</th>
-                        <th>Возраст</th>
-                        <th>Пол</th>
-                        <th>Семья</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="pupil in myPupils track by $index" ng-class="{ 'info': pupil.gender == 'male', 'danger': pupil.gender == 'female' }">
-                        <th scope="row">{{$index}}</th>
-                        <td>{{pupil.name}}</td>
-                        <td>{{pupil.bDate}}</td>
-                        <td>{{pupil.age}}</td>
-                        <td ng-switch on="pupil.gender">
-                            <span ng-switch-when="female">девочка</span>
-                            <span ng-switch-when="male">мальчик</span>
-                            <span ng-switch-default>не указано</span>
-                        </td>
-                        <td>{{pupil.family}}</td>
-                        <td><button type="button" class="btn btn-default">Подробнее...</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row" ng-if="currentPanel.name == 'PupilCard'">
-        <form name="myForm" class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="repeatSelect">Имя</label>
-                <div class="col-sm-9">
-                    <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="pupilId" ng-change="setPupilCard(pupilId)">
-                        <option ng-repeat="pupil in myPupils  track by $index" value="{{pupil.id}}">{{pupil.name}}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="pupilName">Имя</label>
-                <div class="col-sm-9">
-                    <span class="form-control" id="pupilName">{{pupilCard.pupil.name}}</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="pupilBDate">Дата рождения</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="pupilBDate" ng-model="currentPupil.bDate" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="pupilAge">Возраст</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="pupilAge" ng-model="currentPupil.age" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="pupilGender">Пол</label>
-                <div class="col-sm-9" id="pupilGender">
-                    <select class="form-control" ng-model="currentPupil.gender">
-                        <option value="male">Мальчик</option>
-                        <option value="Female">Девочка</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="pupilFamily">Семья</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="pupilFamily" ng-model="currentPupil.family" />
-                </div>
-            </div>
+			<a href="" ng-click="setCurrentPanel(panel)">
+				<div class="thumbnail">
+					<img src="~/Content/images/defaultImg.png" />
+					<div class="caption">
+						<h4>{{panel.title}}</h4>
+						<p>...</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="row" ng-if="currentPanel.name == 'Class'">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">{{currentPanel.title}}</div>
+			<div class="panel-body">
+				<p>...</p>
+				<button type="button" class="btn btn-default  pull-right" ng-click="openAddingForm(currentPanel.name)">Добавить</button>
+			</div>
+			<table class="table tabl">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Имя</th>
+					<th>Дата рождения</th>
+					<th>Возраст</th>
+					<th>Пол</th>
+					<th>Семья</th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="pupil in myPupils track by $index" ng-class="{ 'info': pupil.gender == 'male', 'danger': pupil.gender == 'female' }">
+					<th scope="row">{{$index}}</th>
+					<td>{{pupil.name}}</td>
+					<td>{{pupil.bDate}}</td>
+					<td>{{pupil.age}}</td>
+					<td ng-switch on="pupil.gender">
+						<span ng-switch-when="female">девочка</span>
+						<span ng-switch-when="male">мальчик</span>
+						<span ng-switch-default>не указано</span>
+					</td>
+					<td>{{pupil.family}}</td>
+					<td><button type="button" class="btn btn-default" ng-click="pupilInfo(pupil)">Подробнее...</button></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-        </form>
-        <hr>
-        {{data}}
-        <br />
-    </div>
+	<div class="row" ng-if="currentPanel.name == 'Tests'">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">{{currentPanel.title}}</div>
+			<div class="panel-body">
+				<p>...</p>
+				<button type="button" class="btn btn-default  pull-right" ng-click="openAddingForm(currentPanel.name)">Добавить</button>
+			</div>
+			<table class="table tabl">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Название</th>
+						<th>Предмет</th>
+						<th>Тип работы</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="test in baseInfo.tests track by $index">
+						<th scope="row">{{$index+1}}</th>
+						<td>{{test.title}}</td>
+						<td>{{test.subject}}</td>
+						<td>{{test.type}}</td>
+						<td><button type="button" class="btn btn-default" ng-click="testInfo(test)">Подробнее...</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row" ng-if="currentPanel.name == 'PupilCard'">
 
+		<div class="well col-md-4 col-lg-4 ">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<h3>Информация об ученике</h3>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Имя</td>
+						<td>
+							<select ng-model="pupilCard.pupil" ng-options="pupil.name for pupil in myPupils" ng-change=""></select>
+						</td>
+					</tr>
+					<tr>
+						<td>Дата рождения</td>
+						<td>{{pupilCard.pupil.bDate}}</td>
+					</tr>
+					<tr>
+						<td>Возраст</td>
+						<td>{{pupilCard.pupil.age}}</td>
+					</tr>
+					<tr>
+						<td>Пол</td>
+						<td>{{pupilCard.pupil.gender}}</td>
+					</tr>
+					<tr>
+						<td>Семья</td>
+						<td>{{pupilCard.pupil.family}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+
