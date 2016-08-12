@@ -22,5 +22,11 @@ namespace MyClassJournal.Controllers
 
             return View();
         }
+		public ActionResult AddTestToJournal()
+        {
+            ViewBag.Message = "Добавить работу в журнал";
+
+            return View();
+        }
     }
 }

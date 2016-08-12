@@ -178,6 +178,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Modals\_Layout.cshtml" />
     <Content Include="Views\Modals\AddTest.cshtml" />
+    <Content Include="Views\Modals\AddTestToJournal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
